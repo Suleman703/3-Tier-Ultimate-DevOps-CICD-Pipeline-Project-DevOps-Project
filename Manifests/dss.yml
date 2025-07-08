@@ -31,7 +31,7 @@ spec:
         - name: yelp-camp-container
           image: adijaiswal/campa:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 5000
           env:
             - name: CLOUDINARY_CLOUD_NAME
               valueFrom:
@@ -66,12 +66,12 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: 3000
+              port: 5000
             initialDelaySeconds: 30   # Adjust the initial delay here
           readinessProbe:
             httpGet:
               path: /
-              port: 3000
+              port: 5000
             initialDelaySeconds: 30   # Adjust the initial delay here
 
 ---
@@ -84,6 +84,6 @@ spec:
     app: yelp-camp
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 5000
+      targetPort: 5000
   type: LoadBalancer
